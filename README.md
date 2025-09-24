@@ -278,7 +278,7 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 ## 📞 Soporte
 
 Para soporte técnico o consultas:
-- 📧 Email: soporte@empresa.com
+- 📧 Email: matticry1@gmail.com
 - 📱 Slack: #api-geocercas
 - 🎫 Issues: Crear un issue en el repositorio
 
