@@ -333,30 +333,29 @@ public class GeocercaService : IGeocercaService
         {
             var query = _dbContextMysql.Set<Geogeoc>()
                 .Where(g => g.Geoceqcre.Contains(nameEnterprise));
-            
+        
             if (activo.HasValue)
                 query = query.Where(g => g.Geocact == activo.Value);
-            
+        
             var items = await query
+                .OrderByDescending(g => g.Geoccod) 
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
-            
+        
             var itemsDto = _mapper.Map<List<GeocercaListDto>>(items);
-            
+        
             var paginacion = new PaginacionDto
             {
                 PaginaActual = pageNumber,
                 TamanioPagina = pageSize
             };
-            
+        
             return new PaginatedResultDto<GeocercaListDto>
             {
                 Data = itemsDto,
                 Paginacion = paginacion
             };
-        
-
         }
         catch (Exception ex) when (ex is not (BadRequestException or NotFoundException or ConflictException))
         {
